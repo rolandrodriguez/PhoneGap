@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.intel.icgs" version="1.0">
+<name>Intel Capital Global Summit</name> 
+<description>
+Welcome to the Intel Capital Global Summit Application! 
+This App will enable you, the event attendee, to start your networking now with other registered attendees, even when you are away from your desk. As this is an invitation-only event, only event attendees have access to use this application.
+ 
+As soon as you upload this App, you can start to network:
+·         View and search the list of registered attendees (including photos and bios)
+·         Request one-on-one meetings with other attendees
+·         Check to see who has requested meetings with you
+·         Accept, decline or reschedule meetings
+ 
+And you can do all the things you normally do when you attend a conference:
+·         Review the agenda and your scheduled one on one meetings
+·         Read speaker bios
+·         Check out the location and map of our HQ hotel
+·         Change your profile
+ 
+We look forward to seeing you onsite in November! To learn more about Intel Capital, please visit our website.</description> 
+<author href="http://www.intelcapital.com" email="support@unison.com">
+Intel Capital
+</author> 
+<icon src="img/72x72.png" width="72" height="72" />
+</widget>
