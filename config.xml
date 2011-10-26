@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.intel.icgs" version="1.0">
-<name>Intel Capital Global Summit</name> 
+<name>Global Summit</name> 
 <description>
 Welcome to the Intel Capital Global Summit Application! 
 This App will enable you, the event attendee, to start your networking now with other registered attendees, even when you are away from your desk. As this is an invitation-only event, only event attendees have access to use this application.
@@ -21,5 +21,5 @@ We look forward to seeing you onsite in November! To learn more about Intel Capi
 <author href="http://www.intelcapital.com" email="support@unison.com">
 Intel Capital
 </author> 
-<icon src="img/72x72.png" width="72" height="72" />
+<icon src="img/icon.png" width="68" height="68" default="true" />
 </widget>
