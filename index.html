@@ -33,13 +33,16 @@
 		});
 		
 		var loadUrl = this.loadUrl = function (url) {
+			alert('loading url ' + url);
 			doc = $(document.body);
 			doc.load(url + ' body', function () {
+				alert(this.responseText);
 				rewriteHrefs();
 			});
 		}
 		
 		var rewriteHrefs = this.rewriteHrefs = function () {
+			alert('changing hrefs');
 			doc.find('a[href*=unison]').each(function () {
 				this.onclick = function () {
 					loadUrl(this.href);
@@ -49,6 +52,9 @@
 		}
 	
 	}
+	$(document).click(function () {
+		alert(document.body.innerHTML);
+	});
 	
 	$(document).ready(function () {
 		app.loadUrl('http://unison.intel.com/');
@@ -57,6 +63,7 @@
 </head>
 
 <body>
+	this is still the default text
 </body>
 
 </html>
