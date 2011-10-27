@@ -38,7 +38,7 @@
 				$.ajax({
 					url: url,
 					success: function (data) {
-						var html = data.match(/\<body\>(.*)\<\/body/>/gmi);
+						var html = data.match(/\<body\>(.*)\<\/body\>/gmi);
 						alert(html);
 						doc.html(html);
 						alert(doc.html());
