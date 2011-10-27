@@ -34,18 +34,20 @@
 		
 		var loadUrl = this.loadUrl = function (url) {
 			doc = $(document.body);
-			$.ajax({
-				url: url,
-				success: function (data) {
-					var html = data.split('<body>')[1];
-					alert(html);
-					doc.html(html);
-					alert(doc.html());
-					rewriteHrefs();
-				},
-				error: function (data) {
-				}
-			});
+			try {
+				$.ajax({
+					url: url,
+					success: function (data) {
+						var html = data.match(/\<body\>(.*)\<\/body/>/gmi);
+						alert(html);
+						doc.html(html);
+						alert(doc.html());
+						rewriteHrefs();
+					},
+					error: function (data) {
+					}
+				});
+			} catch (e) {}
 		}
 		
 		var rewriteHrefs = this.rewriteHrefs = function () {
