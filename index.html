@@ -33,12 +33,15 @@
 		});
 		
 		var loadUrl = this.loadUrl = function (url) {
-			alert('loading url ' + url);
 			doc = $(document.body);
 			$.ajax({
 				url: url,
 				success: function (data) {
 					var html = $(data).find('body').innerHTML;
+					alert(data);
+					alert($(data));
+					alert($(data).find(body));
+					alert(html);
 					doc.html(html);
 					rewriteHrefs();
 				},
@@ -48,7 +51,6 @@
 		}
 		
 		var rewriteHrefs = this.rewriteHrefs = function () {
-			alert('changing hrefs');
 			doc.find('a[href*=unison]').each(function () {
 				this.onclick = function () {
 					loadUrl(this.href);
