@@ -37,11 +37,8 @@
 			$.ajax({
 				url: url,
 				success: function (data) {
-					var html = $(data).find('body').innerHTML;
-					alert(data);
-					alert($(data));
-					alert($(data).find(body));
-					alert(html);
+					var html = data;
+					data.split('<body>')[1].split('</body>')[0];
 					doc.html(html);
 					rewriteHrefs();
 				},
