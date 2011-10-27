@@ -54,6 +54,7 @@
 		var rewriteHrefs = this.rewriteHrefs = function () {
 			doc.find('a[href*=unison]').each(function () {
 				this.onclick = function () {
+					alert(this.href);
 					loadUrl(this.href);
 					return false;
 				}
