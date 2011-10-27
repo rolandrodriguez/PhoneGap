@@ -41,6 +41,7 @@
 						var bodyStart = data.toLowerCase().indexOf('<body>');
 						var bodyEnd = data.toLowerCase().indexOf('</' + 'body>');
 						var html = data.slice(bodyStart+6, bodyEnd);
+						html = html.replace(/script/g, 'noscript');
 						alert(html);
 						doc.html(html);
 						alert(doc.html());
