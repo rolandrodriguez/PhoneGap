@@ -39,7 +39,7 @@
 				url: url,
 				success: function (data) {
 					var html = $(data).find('body').innerHTML;
-					doc.innerHTML = html;
+					doc.html(html);
 					rewriteHrefs();
 				},
 				error: function (data) {
