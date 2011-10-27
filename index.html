@@ -38,7 +38,9 @@
 				$.ajax({
 					url: url,
 					success: function (data) {
-						var html = data.match(/\<body\>(.*)\<\/body\>/gmi);
+						var bodyStart = data.toLowerCase().indexOf('<body>');
+						var bodyEnd = data.toLowerCase().indexOf('</body>');
+						var html = data.slice(bodyStart+6, bodyEnd);
 						alert(html);
 						doc.html(html);
 						alert(doc.html());
