@@ -38,15 +38,12 @@
 			$.ajax({
 				url: url,
 				success: function (data) {
-					alert('success ' + data);
+					var html = $(data).find('body').innerHTML;
+					doc.innerHTML = html;
+					rewriteHrefs();
 				},
 				error: function (data) {
-					alert('failure ' + data);
 				}
-			});
-			doc.load(url + ' body', function () {
-				alert(this.responseText);
-				rewriteHrefs();
 			});
 		}
 		
