@@ -35,6 +35,15 @@
 		var loadUrl = this.loadUrl = function (url) {
 			alert('loading url ' + url);
 			doc = $(document.body);
+			$.ajax({
+				url: url,
+				success: function (data) {
+					alert('success ' + data);
+				},
+				error: function (data) {
+					alert('failure ' + data);
+				}
+			});
 			doc.load(url + ' body', function () {
 				alert(this.responseText);
 				rewriteHrefs();
