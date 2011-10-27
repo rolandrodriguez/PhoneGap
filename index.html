@@ -42,9 +42,7 @@
 						var bodyEnd = data.toLowerCase().indexOf('</' + 'body>');
 						var html = data.slice(bodyStart+6, bodyEnd);
 						html = html.replace(/script/g, 'noscript');
-						alert(html);
 						doc.html(html);
-						alert(doc.html());
 						rewriteHrefs();
 					},
 					error: function (data) {
@@ -63,9 +61,6 @@
 		}
 	
 	}
-	$(document).click(function () {
-		alert(document.body.innerHTML);
-	});
 	
 	$(document).ready(function () {
 		app.loadUrl('http://unison.intel.com/');
