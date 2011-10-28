@@ -34,7 +34,7 @@
 		});
 		
 		var init = this.init = function () {
-			getUrl('http://unison.intel.com/unison/web/icgs/icgs/home.htm');
+			getUrl('http://unison.intel.com/');
 			
 			$('a').each(function () {
 				if (this.href.indexOf('mailto:') == 0) return;
@@ -77,7 +77,14 @@
 					url: url,
 					//data: data || {},
 					//method: method || 'GET',
-					success: loadHtml,
+					success: function (data) {
+						var bodyStart = data.toLowerCase().indexOf('<body>');
+						var bodyEnd = data.toLowerCase().indexOf('</' + 'body>');
+						var html = data.slice(bodyStart+6, bodyEnd);
+						html = html.replace(/script/g, 'noscript');
+						doc.html(html);
+						rewriteHrefs();
+					},
 					error: function (data) {
 					}
 				});
