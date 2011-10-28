@@ -49,6 +49,7 @@
 			
 			$('form').live('submit', function (e) {
 				var params = $(this).serialize();
+				alert(params);
 				getUrl(this.action, params, 'POST');
 				return false;
 			});
