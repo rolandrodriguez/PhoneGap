@@ -19,6 +19,7 @@
 	<meta http-equiv="cleartype" content="on">
 	<link rel="stylesheet" href="http://amptag.com/icgs/css/style.css?v=1">
 	<script src="http://amptag.com/icgs/js/libs/jquery-1.6.2.min.js"></script>
+	<script src="http://amptag.com/icgs/js/libs/jquery.form.js"></script>
 	<script src="http://amptag.com/icgs/js/libs/modernizr-custom.js"></script>
 	<script src="http://amptag.com/icgs/js/script.js"></script>
 	<!-- /unison/resources/icgs/js/script.js -->
@@ -32,19 +33,37 @@
 			isLocal: false
 		});
 		
-		var loadUrl = this.loadUrl = function (url) {
+		var init = this.init = function () {
+			
+			$('a').live('click', function (e) {
+				if (/unison/.test(this.href)) {
+					getUrl(this.href);
+				} else {
+					document.location = this.href;
+				}
+				return false;
+			});
+			
+			$('form').ajaxForm(loadHtml);
+		}
+		
+		var loadHtml = this.loadHtml = function () {
+			function (data) {
+				var bodyStart = data.toLowerCase().indexOf('<body>');
+				var bodyEnd = data.toLowerCase().indexOf('</' + 'body>');
+				var html = data.slice(bodyStart+6, bodyEnd);
+				html = html.replace(/script/g, 'noscript');
+				doc.html(html);
+				rewriteHrefs();
+			}
+		}
+		
+		var getUrl = this.loadUrl = function (url) {
 			doc = $(document.body);
 			try {
 				$.ajax({
 					url: url,
-					success: function (data) {
-						var bodyStart = data.toLowerCase().indexOf('<body>');
-						var bodyEnd = data.toLowerCase().indexOf('</' + 'body>');
-						var html = data.slice(bodyStart+6, bodyEnd);
-						html = html.replace(/script/g, 'noscript');
-						doc.html(html);
-						rewriteHrefs();
-					},
+					success: loadHtml,
 					error: function (data) {
 					}
 				});
@@ -52,14 +71,9 @@
 		}
 	
 	}
-	
-	$('a').live('click', function (e) {
-		alert(this.href);
-		return false;
-	});
-	
+
 	$(document).ready(function () {
-		app.loadUrl('http://unison.intel.com/');
+		app.getUrl('http://unison.intel.com/');
 	});
 	</script>
 </head>
