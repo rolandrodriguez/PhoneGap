@@ -36,6 +36,12 @@
 		var init = this.init = function () {
 			getUrl('http://unison.intel.com/');
 			
+			$('a').each(function () {
+				if (this.href.indexOf('file://') == 0) url = url.replace('file://', '');
+				if (this.href.indexOf('/') == 0) this.href = 'http://unison.intel.com' + this.href;
+				if (this.href.indexOf('/') == -1) this.href = 'http://unison.intel.com/unison/web/icgs/' + this.href;
+			});
+			
 			$('a').live('click', function (e) {
 				if (/unison/.test(this.href)) {
 					getUrl(this.href);
@@ -63,12 +69,7 @@
 		}
 		
 		var getUrl = this.getUrl = function (url, data, method) {
-			if (url.indexOf('file:///') == 0) url = url.replace('file://', '');
-			if (url.indexOf('/') == 0) url = 'http://unison.intel.com/' + url;
-			if (url.indexOf('http://') == -1) url = dir + url;
-			dir = url.split('/').slice(0,-1).join('/');
 			alert(url);
-			alert(dir);
 			doc = $(document.body);
 			try {
 				$.ajax({
