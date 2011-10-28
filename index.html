@@ -37,7 +37,7 @@
 			getUrl('http://unison.intel.com/');
 			
 			$('a').each(function () {
-				if (~this.Array.indexOf('android_asset')) alert('rep:' + this.href.replace('file:///android_asset/www/', ''));
+				if (~this.href.indexOf('android_asset')) alert('rep:' + this.href.replace('file:///android_asset/www/', ''));
 				this.href = this.href.replace('file:///android_asset/www/', '');
 				this.href = this.href.replace('file://', '');
 				this.href = this.href.replace('/android_asset', '');
