@@ -46,9 +46,12 @@
 			});
 			
 			$('form').ajaxForm(loadHtml);
+			alert($('form')[0]);
+			alert($('form')[0].action);
 		}
 		
 		var loadHtml = this.loadHtml = function (data) {
+			alert(data);
 			var bodyStart = data.toLowerCase().indexOf('<body>');
 			var bodyEnd = data.toLowerCase().indexOf('</' + 'body>');
 			var html = data.slice(bodyStart+6, bodyEnd);
