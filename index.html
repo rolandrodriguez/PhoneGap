@@ -48,7 +48,12 @@
 			});
 			
 			$('form').live('submit', function (e) {
-				var params = $(this).serialize();
+				var params = {};
+				var $inputs = $('form :input');
+				$inputs.each(function() {
+					params[this.name] = $(this).val();
+				});
+
 				alert(params);
 				getUrl(this.action, params, 'POST');
 				return false;
@@ -92,7 +97,6 @@
 						var bodyStart = data.toLowerCase().indexOf('<body>');
 						var bodyEnd = data.toLowerCase().indexOf('</' + 'body>');
 						var html = data.slice(bodyStart+6, bodyEnd);
-						alert(html);
 						html = html.replace(/script/g, 'noscript');
 						doc.html(html);
 						rewriteHrefs();
