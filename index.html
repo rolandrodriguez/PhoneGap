@@ -62,6 +62,7 @@
 		}
 		
 		var getUrl = this.getUrl = function (url, data, method) {
+			if (url.indexOf('/') == 0) url = 'http://unison.intel.com/' + url;
 			alert(url);
 			doc = $(document.body);
 			try {
