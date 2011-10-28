@@ -68,7 +68,7 @@
 			if (url.indexOf('http://') == -1) url = dir + url;
 			dir = url.split('/').slice(0,-1).join('/');
 			alert(url);
-			alert(location);
+			alert(dir);
 			doc = $(document.body);
 			try {
 				$.ajax({
