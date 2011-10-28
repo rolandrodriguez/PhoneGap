@@ -79,8 +79,8 @@
 			try {
 				$.ajax({
 					url: url,
-					//data: data || {},
-					//method: method || 'GET',
+					data: data || {},
+					type: method || 'GET',
 					success: function (data) {
 						var bodyStart = data.toLowerCase().indexOf('<body>');
 						var bodyEnd = data.toLowerCase().indexOf('</' + 'body>');
