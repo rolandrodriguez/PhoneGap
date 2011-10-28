@@ -45,6 +45,8 @@
 			});
 			
 			$('form').ajaxForm(loadHtml);
+
+			getUrl('http://unison.intel.com/');
 		}
 		
 		var loadHtml = this.loadHtml = function () {
@@ -73,7 +75,7 @@
 	}
 
 	$(document).ready(function () {
-		app.getUrl('http://unison.intel.com/');
+		app.init();
 	});
 	</script>
 </head>
