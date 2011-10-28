@@ -45,6 +45,8 @@
 			});
 			
 			$('form').live('submit', function (e) {
+				var params = $(this).serialize();
+				getUrl(this.action, params);
 				return false;
 			});
 		}
@@ -59,11 +61,14 @@
 			rewriteHrefs();
 		}
 		
-		var getUrl = this.getUrl = function (url) {
+		var getUrl = this.getUrl = function (url, data, method) {
+			alert(url);
 			doc = $(document.body);
 			try {
 				$.ajax({
 					url: url,
+					data: data || {},
+					method: method || 'GET',
 					success: loadHtml,
 					error: function (data) {
 					}
