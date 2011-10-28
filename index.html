@@ -34,6 +34,7 @@
 		});
 		
 		var init = this.init = function () {
+			getUrl('http://unison.intel.com/');
 			
 			$('a').live('click', function (e) {
 				if (/unison/.test(this.href)) {
@@ -45,22 +46,18 @@
 			});
 			
 			$('form').ajaxForm(loadHtml);
-
-			getUrl('http://unison.intel.com/');
 		}
 		
-		var loadHtml = this.loadHtml = function () {
-			function (data) {
-				var bodyStart = data.toLowerCase().indexOf('<body>');
-				var bodyEnd = data.toLowerCase().indexOf('</' + 'body>');
-				var html = data.slice(bodyStart+6, bodyEnd);
-				html = html.replace(/script/g, 'noscript');
-				doc.html(html);
-				rewriteHrefs();
-			}
+		var loadHtml = this.loadHtml = function (data) {
+			var bodyStart = data.toLowerCase().indexOf('<body>');
+			var bodyEnd = data.toLowerCase().indexOf('</' + 'body>');
+			var html = data.slice(bodyStart+6, bodyEnd);
+			html = html.replace(/script/g, 'noscript');
+			doc.html(html);
+			rewriteHrefs();
 		}
 		
-		var getUrl = this.loadUrl = function (url) {
+		var getUrl = this.getUrl = function (url) {
 			doc = $(document.body);
 			try {
 				$.ajax({
