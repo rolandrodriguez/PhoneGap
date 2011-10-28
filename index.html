@@ -53,10 +53,8 @@
 	
 	}
 	
-	$(document).click(function (e) {
-		alert(e);
-		alert(e.href);
-		if (e.currentTarget) alert(e.currentTarget.href);
+	$('a').live('click', function (e) {
+		alert(this.href);
 		return false;
 	});
 	
