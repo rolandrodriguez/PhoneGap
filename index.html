@@ -64,12 +64,9 @@
 		
 		var getUrl = this.getUrl = function (url, data, method) {
 			if (url.indexOf('file:///') == 0) url = url.replace('file://', '');
-			alert(url);
 			if (url.indexOf('/') == 0) url = 'http://unison.intel.com/' + url;
-			alert(url);
-			if (url.indexOf('http://') == -1) url = location + url;
-			alert(url);
-			location = url.split('/').slice(0,-1).join('/');
+			if (url.indexOf('http://') == -1) url = dir + url;
+			dir = url.split('/').slice(0,-1).join('/');
 			alert(url);
 			alert(location);
 			doc = $(document.body);
