@@ -19,7 +19,6 @@
 	<meta http-equiv="cleartype" content="on">
 	<link rel="stylesheet" href="http://amptag.com/icgs/css/style.css?v=1">
 	<script src="http://amptag.com/icgs/js/libs/jquery-1.6.2.min.js"></script>
-	<script src="jquery.form.js"></script>
 	<script src="http://amptag.com/icgs/js/libs/modernizr-custom.js"></script>
 	<script src="http://amptag.com/icgs/js/script.js"></script>
 	<!-- /unison/resources/icgs/js/script.js -->
@@ -45,9 +44,9 @@
 				return false;
 			});
 			
-			$('form').ajaxForm(loadHtml);
-			alert($('form')[0]);
-			alert($('form')[0].action);
+			$('form').live('submit', function (e) {
+				return false;
+			});
 		}
 		
 		var loadHtml = this.loadHtml = function (data) {
