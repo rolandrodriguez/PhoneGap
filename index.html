@@ -47,13 +47,13 @@
 			
 			$('form').live('submit', function (e) {
 				var params = $(this).serialize();
-				getUrl(this.action, params);
+				alert(params);
+				getUrl(this.action, params, 'POST');
 				return false;
 			});
 		}
 		
 		var loadHtml = this.loadHtml = function (data) {
-			alert(data);
 			var bodyStart = data.toLowerCase().indexOf('<body>');
 			var bodyEnd = data.toLowerCase().indexOf('</' + 'body>');
 			var html = data.slice(bodyStart+6, bodyEnd);
