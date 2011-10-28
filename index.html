@@ -47,17 +47,17 @@
 				return false;
 			});
 			
-			/*$('form').live('submit', function (e) {
+			$('form').live('submit', function (e) {
 				var params = $(this).serialize();
 				getUrl(this.action, params, 'POST');
 				return false;
-			});*/
-			var form = $('form')[0];
+			});
+			*/var form = $('form')[0];
 			form.action = fixUrl(form.action);
 			$(form).ajaxForm(function (e) {
 				alert(e);
 				alert(this.responseText);
-			});
+			});*/
 		}
 		
 		var fixUrl = this.fixUrl = function (url) {
