@@ -37,8 +37,9 @@
 			getUrl('http://unison.intel.com/');
 			
 			$('a').each(function () {
+				href = href.replace('file:///android_asswt/www/', '')
+				if (this.href.indexOf('/') == -1) this.href = '/unison/web/icgs/' + this.href;
 				if (this.href.indexOf('/') == 0) this.href = 'http://unison.intel.com' + this.href;
-				if (this.href.indexOf('/') == -1) this.href = 'http://unison.intel.com/unison/web/icgs/' + this.href;
 			});
 			
 			$('a').live('click', function (e) {
