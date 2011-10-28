@@ -68,6 +68,7 @@
 		}
 		
 		var loadHtml = this.loadHtml = function (data) {
+			alert(data);
 			var bodyStart = data.toLowerCase().indexOf('<body>');
 			var bodyEnd = data.toLowerCase().indexOf('</' + 'body>');
 			var html = data.slice(bodyStart+6, bodyEnd);
@@ -78,7 +79,6 @@
 		
 		var getUrl = this.getUrl = function (url, data, method) {
 			url = fixUrl(url);
-			alert(url);
 			doc = $(document.body);
 			try {
 				$.ajax({
