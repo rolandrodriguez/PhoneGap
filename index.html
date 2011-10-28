@@ -38,7 +38,8 @@
 			
 			$('a').each(function () {
 				if (this.href.indexOf('mailto:') == 0) return;
-				this.href = this.href.replace('file:///android_asset/www/', '');
+				this.href = this.href.replace('file://');
+				this.href = this.href.replace('/android_asset/www/', '');
 				if (this.href.indexOf('/') == -1) this.href = '/unison/web/icgs/' + this.href;
 				if (this.href.indexOf('/') == 0) this.href = 'http://unison.intel.com' + this.href;
 			});
@@ -71,6 +72,7 @@
 		}
 		
 		var getUrl = this.getUrl = function (url, data, method) {
+			alert(url);
 			doc = $(document.body);
 			try {
 				$.ajax({
@@ -81,6 +83,7 @@
 						var bodyStart = data.toLowerCase().indexOf('<body>');
 						var bodyEnd = data.toLowerCase().indexOf('</' + 'body>');
 						var html = data.slice(bodyStart+6, bodyEnd);
+						alert(html);
 						html = html.replace(/script/g, 'noscript');
 						doc.html(html);
 						rewriteHrefs();
