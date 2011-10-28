@@ -47,6 +47,7 @@
 			});
 			
 			$('a').live('click', function (e) {
+				this.href = this.href.replace('file://', '');
 				alert(this.href);
 				if (/unison/.test(this.href)) {
 					getUrl(this.href);
