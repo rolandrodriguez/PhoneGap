@@ -53,21 +53,13 @@
 				$inputs.each(function() {
 					params[this.name] = $(this).val();
 				});
-
-				alert(params);
 				getUrl(this.action, params, 'POST');
 				return false;
 			});
-			/*var form = $('form')[0];
-			form.action = fixUrl(form.action);
-			$(form).ajaxForm(function (e) {
-				alert(e);
-				alert(this.responseText);
-			});*/
 		}
 		
 		var fixUrl = this.fixUrl = function (url) {
-			if (url.indexOf('mailto:') == 0) return;
+			if (url.indexOf('mailto:') == 0) return url;
 			url = url.replace('file://', '');
 			url = url.replace('/android_asset/www/', '');
 			if (url.indexOf('/') == -1) url = '/unison/web/icgs/' + url;
